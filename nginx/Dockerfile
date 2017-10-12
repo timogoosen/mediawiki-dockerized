@@ -1,26 +1,25 @@
 FROM ubuntu
-#RUN apt-get install postgresql nginx php-fpm php-apcu php-gd php-intl php-mbstring php-pgsql php-xml git vim -y
 
 RUN apt-get update -y && apt-get upgrade -y
 
 
 RUN apt-get install nginx  -y
 
-#RUN apt-get install nginx vim -y
-
-#CMD service php7.0-fpm start && nginx -g "daemon off;"
+RUN apt-get install iputils-ping -y
 
 RUN rm /etc/nginx/sites-enabled/default
 
+RUN rm /etc/nginx/sites-available/default
+
 RUN mkdir /var/www/html/mediawiki
 
-COPY site.conf /etc/nginx/sites-available/
+COPY sites-enabled/site.conf /etc/nginx/sites-available/
 
 RUN ln -s /etc/nginx/sites-available/site.conf /etc/nginx/sites-enabled/
 
-#COPY info.php /var/www/html/mediawiki/info.php
+#COPY data/info.php /var/www/html/mediawiki/
 
-# RUN chmod 644 /var/www/html/mediawiki/info.php
+#RUN chmod 644 /var/www/html/mediawiki/info.php
 
 #RUN chown www-data:www-data /var/www/html/mediawiki/info.php
 

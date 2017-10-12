@@ -1,0 +1,2 @@
+2017/10/12 08:40:07 [emerg] 1#1: open() "/etc/nginx/nginx.conf" failed (2: No such file or directory)
+2017/10/12 11:23:35 [emerg] 1#1: open() "/etc/nginx/nginx.conf" failed (2: No such file or directory)
